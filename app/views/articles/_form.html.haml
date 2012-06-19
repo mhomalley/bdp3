@@ -1,0 +1,141 @@
+//- debugger
+%p#notice= notice
+= form_for [@issue, @article], :html => {multipart: true} do |f|
+  %p
+    .left
+      %b
+        Date/Time
+      = f.datetime_select :posted_at
+    .focus.right
+      = f.submit @submit_title #'Create or Update this Article'
+    .right
+      %b
+        Label
+      = select('article', 'section', [['Updated'], ['New'], ['News Flash'], ['Press Release']], {:selected => @article.section, :include_blank => true})
+
+
+  %p.clear
+    %b
+      Priority
+    - if @article.priority.nil?
+      /= f.text_field(:priority, :value => next_article_priority, :size => 3)
+      = f.text_field(:priority, :value => -200, :size => 3)
+      /= f.text_field(:priority, :size => 3)
+    - else
+      = f.text_field(:priority, :size => 3)
+    %span{:style => 'font-sizexx: 10pt'}
+      \-200- Ignored, -0 Extra, 1+ Page One, 6 Editorial, 7+ Features, 20+ Election Section, 25+ Press Rels., 30+ Columns, 
+      40+ Letters, 45+ Commentary,
+      %br
+      50+ Arts Lists, 55+ Arts, 60+ Home Columnists, 66+ Home Features,
+      /%br
+      70+ Events Lists, 75+ Events, 80+ Ed Cartoon, 85+ Ed Back Fence, 90+ Obits, 200+ Ignored
+  %p
+    .left
+      %b
+        Headline
+      %br/
+      = f.text_area(:headline, :cols => 70, :rows => 2)
+    .right
+      %b
+        Author
+      %br/
+      = f.text_area(:author, :cols => 40, :rows => 2)
+  %p
+    %table{:style => 'font-sizexx: 10pt'}
+      %tr
+        %td By Becky O'Malley
+        /%td By Riya Bhattacharjee
+        /%td By Raymond Barglow
+        /%td By Richard Brenneman
+        /%tr
+        /%td By Justin DeFreitas,
+        /%td By J. Douglas Allen-Taylor
+        /%td By Daniella Thompson
+        %td By Bay City News
+        /%td By Matt Cantor
+      %tr
+        %td By Ron Sullivan
+        %td By Conn Hallinan
+        /%tr
+        %td{:colspan => 1}By X, Special to The Planet
+        %td{:colspan => 1}By Ken Bullock, Special to The Planet
+        %td By Steven Finacom
+  %p
+    %b
+      Copy
+    %br/
+    = f.text_area(:copy, :cols => 120, :rows => 30)
+    %table{:style => 'font-sizxxe: 10pt'}
+      %tr
+        %td{:colspan => 1}
+          \&lt;a href="http://URL" target="_blank"> text &lt;/a>
+        %td
+          \&lt;blockquote> text &lt;/blockquote>
+        %td
+          \&lt;i> text &lt;/i>
+        %td
+          \&lt;b> text &lt;/b>
+        %td
+          \&lt;u> text &lt;/u>
+      %tr
+        %td
+          \&lt;a href="http://URL" > text &lt;/a>
+        %td{:colspan => 1}
+          \&lt;a href="mailto:X@Y" > text &lt;/a>
+        %td
+          \&lt;br />&lt;br />
+        %td
+          \&lt;sup>X&lt;/sup>
+        %td
+          \&lt;sub>X&lt;/sub>
+      %tr
+        %td{:colspan => 2}
+          \&lt;iframe src="http://URL" width="100%" frameborder="1" height="900" >&lt;/iframe>
+        %td{:colspan => 4}
+          \&lt;img src="/photos/issue/XX.jpg" class="free_img"/>
+      %tr
+        %td   
+          \&lt;a href="/pdfs/XX.pdf" > text &lt;/a>
+      %tr
+        %td{:colspan => 5}
+          \&lt;hr />&lt;b>Comments? Write to &lt;a href="mailto:opinion@berkeleydailyplanet.com">opinion at berkeleydailyplanet.com&lt;/a>.  
+          If you sign your real name to your comment we'll publish it.&lt;/b> Please include a phone number (not for publication) so that we can verify authorship.
+  
+  %br/
+  .focus.right
+    = f.submit @submit_title #'Create or Update this Article'
+  %fieldset
+    %legend
+      Add an image to this article
+    // = fixit error_messages_for :image
+    = fields_for :image do |i|
+      %table
+        %tr
+          %td
+            %label{:for => "image_file_name"}
+              File Name:
+          %td
+            = i.file_field(:file_name, :size => 80)
+        %tr
+          %td
+            %label{:for => "image_author"}
+              Author:
+          %td
+            = i.text_area(:author, :cols => 50, :rows => 1)
+        %tr
+          %td
+            %label{:for => "image_caption"}
+              Caption:
+          %td
+            = i.text_area(:caption, :cols => 90, :rows => 4)
+  %br/
+  %p.focus.left
+    %span.red{:style => 'font-size: 16px'}
+      Check box if this image should also be made the Front Page Image
+    = check_box_tag('fpi')
+  %br/
+  %br/
+
+
+

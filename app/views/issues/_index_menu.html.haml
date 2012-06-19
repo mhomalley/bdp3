@@ -1,0 +1,9 @@
+%p.menu
+  = link_to 'Create a New Issue', new_issue_path
+%p.menu
+  = link_to 'Edit/Add Users', users_path if session['user_name'] == 'mho'
+%p.menu
+  = link_to 'Logout', logout_users_path
+%p.menu
+  = link_to 'Main Site', empty_path
+

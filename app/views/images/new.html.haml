@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%h1
+  New Stand-Alone Front Page Image
+= form_for(:image, :url => issue_images_path(:issue_id => d(@issue.date)), :html => {:enctype => "multipart/form-data"}) do |f|
+  %table
+    %tr
+      %td
+        %label{:for => "image_file_name"}
+          File Name:
+      %td
+        = f.file_field(:file_name, :size => 80)
+    %tr
+      %td
+        %label{:for => "image_author"}
+          Author:
+      %td
+        = f.text_area(:author, :cols => 50, :rows => 1)
+    %tr
+      %td
+        %label{:for => "image_caption"}
+          Caption:
+      %td
+        = f.text_area(:caption, :cols => 90, :rows => 4)
+  %p
+    = submit_tag "Create Image"
+      
+- unless @issue.front_page_image.nil?
+  %br/
+  %br/
+  %h1
+    Current Front Page Image:
+  = @issue.front_page_image.file_name
+  %br/
+  = front_page_photo
+

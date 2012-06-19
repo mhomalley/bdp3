@@ -1,0 +1,12 @@
+!!!
+%html{"xml:lang"=>"en", "lang"=>"en", "xmlns"=>"http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{"content"=>"text/html;charset=UTF-8", "http-equiv"=>"content-type"}/
+    = stylesheet_link_tag 'public', :media => 'all'
+    = partial_include("header")
+  %body
+    #basic_container
+      #main
+        = yield
+      = partial_include("footer")
+

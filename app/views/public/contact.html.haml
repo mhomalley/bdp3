@@ -1,0 +1,47 @@
+#content
+  .gutter
+    <h2>Contact The Planet</h2>
+    <p>Phone: (510) 841-5600 <br>
+    Fax: (510) 845-8440</p>
+    <p>Mail P.O. Box 5534, Berkeley, CA 94705</p>
+    %hr{:size=>1, :width=>"90%"}/
+    <p><b>To submit opinions: </b><br>
+    == Email: #{fool_spam("opinion")}
+    %noscript
+      opinion at BerkeleyDailyPlanet.com
+    <br>
+    Opinions less than 400 words long are published as letters. Commentaries are usually between 400 and 1,000 words.
+    To be published, opinions must be signed by the writer&rsquo;s real first and last name. 
+    Please provide an address and a telephone number so that we can verify authorship if necessary.</p>
+    %hr{:size=>1, :width=>"90%"}/
+    <p><b>To submit story ideas, news briefs, and press releases: </b><br>
+    == Email: #{fool_spam("news")}
+    %noscript
+      news at BerkeleyDailyPlanet.com
+    </p>
+    %hr{:size=>1, :width=>"90%"}/
+    <p><b>To subscribe: </b><br>
+    == Email: #{fool_spam("subscribe")}
+    %noscript
+      subscribe at BerkeleyDailyPlanet.com
+    </p>
+    %hr{:size=>1, :width=>"90%"}/
+    <p><b>To unsubscribe: </b><br>
+    == Email: #{fool_spam("unsubscribe")}
+    %noscript
+      unsubscribe at BerkeleyDailyPlanet.com
+    </p>
+    %hr{:size=>1, :width=>"90%"}/
+    %b
+      To discuss issues involving our web site:
+    %br
+    == Email: #{fool_spam("momalley")}
+    %noscript
+      momalley at BerkeleyDailyPlanet.com
+    %br
+    %hr{:size=>1, :width=>"90%"}/
+    <p><b>To list events:</b></p>
+    <p>We no longer compile calendars in house, but use listings supplied by Bay City News. Submit listings directly to Bay City News at this address:&nbsp;<a target="_blank" href="mailto:leisurelog@pacbell.net">leisurelog at pacbell.net</a>.</p>
+    <p>Events should be submitted two weeks in advance. &nbsp;Corrections to published listings should be sent to the same address.</p>   
+= partial_include("nav_topics")
+

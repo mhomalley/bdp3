@@ -1,0 +1,36 @@
+//- debugger
+- @title = "#{@article.headline}. Category: #{cat_text(@article.priority)} from #{title()}"
+#content
+  .gutter
+    %h1.large_air_below
+      == #{cat_text(@article.priority)}
+    %h2.air_below
+      //= @article.headline
+      = fix_text article_headline(@article)
+    .auth_date_box.air_below
+      - if tmp = article_author(@article)
+        .auth_box
+          = tmp
+      - if is_update?
+        .red
+          = article_post_date(@article)
+      -else
+        %div
+          = article_post_date(@article)
+    .right
+      <!-- AddThis Button BEGIN -->
+      <a class="addthis_button" href="http://addthis.com/bookmark.php?v=250&amp;username=mhomalley">
+      <img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" 
+      alt="Bookmark and Share" style="border:0"/></a>
+      <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=mhomalley"></script>
+      <!-- AddThis Button END -->
+    
+    = article_photos(@article) 
+    .copy
+      <p>
+      = fix_text @article.copy.gsub(/\r?\n/, "&nbsp;</p><p>")
+      </p>
+      /= @article.copy.gsub(/\n/, "<br/><br/>")
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+= partial_include("nav_topics")
+

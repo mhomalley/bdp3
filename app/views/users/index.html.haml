@@ -1,0 +1,22 @@
+%h1
+  List of Users
+%p
+
+%table
+  %tr
+    %th
+      User Name:
+    %th
+      User Id:
+  - for user in @users
+    %tr
+      %td
+        = h user.user_name
+      %td
+        = h user.id
+      %td
+        = link_to 'Edit', edit_user_path(user)
+      %td
+        = link_to 'Delete', user_path(user), :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New user', new_user_path

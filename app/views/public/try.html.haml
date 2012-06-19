@@ -1,0 +1,51 @@
+#content
+  .gutter
+    %h1.large_air_below
+      Test Bed
+    <div class="js-kit-poll" path="/poll1" style="width: 300px"></div>
+    <script src="http://js-kit.com/polls.js"></script>
+    %br
+    %br
+    %h1 XXXX h1 test
+    %h2 XXXX h2 test
+    %h3 XXXX h3 test
+    %h4 XXXX h4 test
+    %h5 XXXX h5 test
+    %h6 XXXX h6 test
+    %h7 XXXX h7 test
+    %h8 XXXX h8 test
+    %h9 XXXX h9 test
+    %h10 XXXX h1 test
+
+    <div align="center"><script language="JavaScript" src="http://www.websitetoolbox.com/cgi/view/poll.cgi?username=mhomalley&id=18295"></script></div>
+    <div align="center"><script language="JavaScript" src="http://www.websitetoolbox.com/cgi/view/poll.cgi?username=mhomalley&id=18296"></script></div>
+
+
+    %h3
+      Class is fund_brb
+    %a.fund_brb{ :href => "/fund"}
+      The Planet needs your help.
+      //Support
+      //%i The Planet:
+      %br
+      Give to the Fund for 
+      %br
+      Local Reporting!
+
+    %h3.clear
+      Class is fund_sbb
+    %a.fund_sbb{ :href => "/fund"}
+      This is a small black box that would be appropriate for a longer clickable message.
+
+    %h3.clear
+      Class is fund_sbb on a &lt;div>
+    .fund_sbb
+      This is a small black box that would be appropriate for a longer  message with a click
+      %a{ :href => "/fund"}here.
+    
+    %h3.clear
+      Class is fund_sbbc
+    %a.fund_sbbc{ :href => "/fund"}
+      This is a small centered black box.
+= partial_include("nav_topics")
+ 

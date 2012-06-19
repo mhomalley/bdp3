@@ -1,0 +1,16 @@
+%h1
+  Login:
+= form_for(:user, url: {action: :do_login}) do |f|
+  %table
+    %tr
+      %td
+        = f.label :user_name
+        = f.text_field :user_name
+    %tr
+      %td
+        = f.label :password
+        = f.password_field(:password, size: 20) 
+    %tr
+      %td
+        = f.submit :login
+

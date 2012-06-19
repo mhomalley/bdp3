@@ -1,0 +1,10 @@
+- @title = "East Bay Home and Gardens from #{title()}"
+Mo Longer Used
+ #content
+  .gutter
+    %h1.large_air_below
+      East Bay Home and Gardens
+    - for @article in @issue.home_garden
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+= partial_include("nav_topics")
+

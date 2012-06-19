@@ -1,0 +1,9 @@
+- @title = "East Bay Columnists from #{title()}"
+#content
+  .gutter
+    %h1.large_air_below
+      Columnists
+    - for @article in @issue.columnists_recent
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+= partial_include("nav_topics")
+

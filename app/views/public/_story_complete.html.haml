@@ -1,0 +1,23 @@
+.story
+  .has_copy
+    %h2
+      = article_headline(@article)
+    .auth_date_box
+      - if tmp = article_author(@article)
+        .auth_box
+          = tmp
+      - if is_update?
+        .red
+          = article_post_date(@article)
+      -else
+        %div
+          = article_post_date(@article)
+          
+          
+    - if not(no_photo)
+      = article_photos(@article)
+    .has_copy_copy.copy
+      <p>
+      = @article.copy.gsub(/\r?\n/, "&nbsp;</p><p>") #paragraph is \n\t  [:blank:]+
+      </p>
+  %br{:clear => 'left'}/

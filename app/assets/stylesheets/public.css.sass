@@ -1,0 +1,36 @@
+//@import _colors.css.sass
+@import _sizes.css.sass
+@import _util.css.sass
+  
+body
+  //it's good practice to zero the margin and padding of the body element to account for differing browser defaults 
+  :margin 0
+  :padding 0
+  //this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector
+  :text-align center
+  
+#container
+  :text-align left
+  :margin-left 5px
+  min-width: $target_width 
+  :font
+    :size 100%
+    :family "Times New Roman", serif
+
+#basic_container
+  :text-align left
+  :margin-left 5px
+  :font
+    :size 100%
+    :family "Times New Roman", serif    
+
+@import _images.css.sass
+@import _header.css.sass
+@import _nav_topics.css.sass
+@import _locads.css.sass
+@import _content_main.css.sass
+@import _specials.css.sass
+
+#footer
+  :clear both
+

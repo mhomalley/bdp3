@@ -1,0 +1,21 @@
+%h1
+  Edit the date of this issue
+%p#notice= notice
+//- debugger
+= form_for(:issue, :url => issue_path(:id => d(@issue.date)), :html => { :method => :put }) do |f|
+  %p
+    %b
+      Date
+    %br/
+    = f.date_select :date
+  /%p
+  /  %b
+  /    Front page image
+  /  %br/
+  /  // = f.file_field :front_page_image
+  %p
+    = submit_tag 'Update'
+= link_to 'List All Issues', issues_path
+|
+= link_to 'View The Front Page Image', issue_path(:id => d(@issue.date))
+

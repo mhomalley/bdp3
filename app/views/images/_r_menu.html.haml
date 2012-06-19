@@ -1,0 +1,17 @@
+%h1
+  Photo Files for Date:
+  %br/
+  = @issue.date
+%br/
+%table
+  - if all_photo_files(@issue)
+    - for file in all_photo_files(@issue)
+      - debugger
+      %tr
+        %td
+          = file
+      %tr
+        %td
+          = show_photo_file(@issue, file, :width => '100px')
+  
+

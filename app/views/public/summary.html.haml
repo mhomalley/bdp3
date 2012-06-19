@@ -1,0 +1,49 @@
+- @title = "Contents for #{title()}"
+/.gutter
+#summary
+  /#tops.center
+  /  = partial_include("public/top_head")
+  %br
+  %br
+  %h1.large_air_below
+    The Week
+
+  = front_page_photo
+
+  .large_air_below.clear &nbsp;
+  - unless (foo = @issue.news_recent).empty?
+    %h1.large_air_below News
+    - for @article in foo
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+  
+  %h1.large_air_below Opinion
+  - unless (foo = @issue.cur_editorials_recent).empty?
+    %h2.air_below Editorials
+    - for @article in foo
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+  - unless (foo = @issue.new_editorials_recent).empty?
+    %h2.air_below The Editor's Back Fence
+    - for @article in foo
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+  - unless (foo = @issue.ed_cartoons_recent).empty?
+    %h2 Cartoons
+    - for @article in foo
+      = render(:partial => 'story_preview', :locals => {:skip_copy => true, :no_photo => false})
+
+  - unless (foo =  @issue.commentary_recent).empty?
+    %h2.large_air_below Comments
+    - for @article in foo
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+        
+  - unless (foo =  @issue.columnists_recent).empty?
+    %h1.large_air_below Columns
+    - for @article in foo
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+  - unless (foo =  @issue.arts_entertainment_recent).empty?
+    %h1.large_air_below Arts &amp; Events
+    - for @article in foo
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+ 

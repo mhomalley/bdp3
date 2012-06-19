@@ -1,0 +1,40 @@
+%p#notice= notice
+
+%h1
+  Listing articles
+%table
+  %tr
+    %th
+      Issue
+    %th
+      Author
+    %th
+      Headline
+    /%th
+    /  Copy
+    %th
+      Section
+    %th
+      Priority
+  - for article in @articles
+    %tr
+      %td
+        = h article.issue_id
+      %td
+        = h article.author
+      %td
+        = h article.headline
+      /%td
+      /  = h article.copy
+      %td
+        = h article.section
+      %td
+        = h article.priority
+      %td
+        = link_to 'Show', issue_article_path(:id => article)
+      %td
+        = link_to 'Edit', edit_issue_article_path(:id => article)
+      %td
+        = link_to 'Destroy', issue_article_path(:id => article), :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New article', new_issue_article_path

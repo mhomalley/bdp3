@@ -1,0 +1,18 @@
+#footer
+  .nav_site
+    /%ul.left
+    /  %li= link_to('Index', public_action_path(:issue_id => d(@issue.date), :action => 'toc'))
+    /  %li
+    /    = link_to('Contact Us', public_action_path(:issue_id => d(@issue.date), :action => 'contact'))
+    /    
+    /%ul.right
+    /  %li.grey
+    /    = link_to 'RSS Feeds'
+    /  /%li
+    /  /  = link_to 'Log-on to My Planet'
+    /  %li.grey
+    /    = link_to 'Support The Planet'
+    /  %li.grey
+    /    = link_to 'Advertise'
+
+

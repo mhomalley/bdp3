@@ -1,0 +1,49 @@
+.story
+  //- debugger
+  - if skip_copy
+    .no_copy
+      - if (tmp = article_photo(@article)) and not(no_photo)
+        .photox
+          = tmp
+      %h2
+        = article_headline(@article)
+      .auth_date_box
+        - if tmp = article_author(@article)
+          .auth_box
+            = tmp
+        - if is_update?
+          .red
+            = article_post_date(@article)
+        -else
+          %div
+            = article_post_date(@article)
+        
+  - else
+    .has_copy
+      %h2
+        = article_headline(@article)
+      .auth_date_box
+        - if tmp = article_author(@article)
+          .auth_box
+            = tmp
+        - if is_update?
+          .red
+            = article_post_date(@article)
+        -else
+          %div
+            = article_post_date(@article)
+      - if (tmp = article_photo(@article)) and not(no_photo)
+        .photox
+          = tmp
+      .has_copy_copy.copy
+        %p
+          //- debugger
+          //- @article.copy.encode!("utf-8", "iso8859-1")
+          = @article.preview
+          - if @article.headline
+            - if @article.author
+              = link_to('-more-', public_article_path(:issue_id => d(@article.issue.date), :storyID => @article, :headline => headline_to_url(@article.headline + "--" + @article.author)))
+            -else
+              = link_to('-more-', public_article_path(:issue_id => d(@article.issue.date), :storyID => @article, :headline => headline_to_url(@article.headline)))
+          
+  %br{:clear => 'left'}/

@@ -1,0 +1,9 @@
+- @title = "East Bay Arts And Entertainment from #{title()}"
+#content
+  .gutter
+    %h1.large_air_below
+      Arts &amp; Events
+    - for @article in @issue.arts_entertainment_recent
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+= partial_include("nav_topics")
+

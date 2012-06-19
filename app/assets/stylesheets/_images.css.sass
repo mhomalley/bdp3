@@ -1,0 +1,105 @@
+//Illustration css
+@import _colors.css.sass
+@import _sizes.css.sass
+.photographer
+  :font-style italic
+  :font-size 80%
+  :float right
+
+.caption
+  :font-style italic
+  :font-size 90%
+  :clear both
+
+//Box for photos in article
+.photos
+  :float left
+  width:  $article_photo_width 
+  :margin 10px 10px 10px 0
+  //:padding-top 4px
+  :clear left
+
+//Single photo in article box
+.artphoto
+  :border 1px solid
+    color:  $border_color
+  :padding 7px
+  :z-index 1000
+  :position relative
+
+  img
+    :z-index 1000
+    width:  100%
+
+  a:active
+    img
+      :width auto
+      :z-index 1000
+      
+//Free Standing Image
+.free_img
+  :float left
+  :position relative
+  :z-index 1000
+  :padding 7px 10px 7px 7px
+
+//Front Page Image
+.photo
+  :border 1px solid
+    color:  $border_color
+  :padding 7px
+  :margin 0 auto 7px auto
+  //:font-size smaller
+  width:  $fpi_width
+  :z-index 1000
+  :position relative
+
+  img
+    width:  100%
+    :z-index 1000
+  a:active
+    img
+      :width auto
+      :z-index 1000
+//Ed Cartoon
+.photo_ec
+  :border 1px solid
+    color:  $border_color
+  //:padding 7px
+  :margin 0 auto 7px auto
+  :z-index 1000
+  width:  $ec_width
+  :position relative
+
+  img
+    width:  100%
+    :z-index 1000
+//Thumbnail
+.photox
+  :border 1px solid
+    color:  $border_color
+  //:margin 10px 0 5px 7px
+  :margin 10px 7px 5px 5px
+  :float left
+  width:  $thumb_width
+  :z-index 1000
+  :position relative
+
+  img
+    width:  100%
+    :z-index 1000
+
+  a:active
+    img
+      //:margin 0 0 0 -300px
+      :width auto
+      :z-index 1000
+      
+#summary
+  .photo
+    :float left
+    width:  250px
+    //width:  $fpi_sum_width
+  .photos
+    width:  250px
+    //width:  $fpi_sum_width

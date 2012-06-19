@@ -1,0 +1,63 @@
+#ads
+  .large_air_below
+    %img{:src=>"/locads/images/ad1.jpg"}
+  - if params[:action] == 'index'
+    .clear_text.smaller.large_air_below
+      %h1.center
+        Back Stories
+      = partial_include("headlines")
+  #nav_topics    
+    .large_air_below.wide_box.focus_border1
+      /.fund_brb
+      = partial_include("like_links")
+  
+    /.large_air_below
+    /  %a{:href => "http://www.brownpapertickets.com/event/184036"}
+    /    %h3
+    /      Click Here for Tickets:
+    /    %img{:src=>"/locads/images/ad1l.jpg"}
+    .large_air_below
+      %img{:src=>"/locads/images/ad2.jpg"}
+    /.large_air_below
+    /  %img{:src=>"/locads/images/ad3.jpg"}
+
+    /.large_air_below
+    /  <div id="change_BottomBar"><span id="change_Powered"><a href="http://www.change.org/" target="_blank">Petitions</a> by Change.org</span><a>|</a><span id="change_Start">Start a <a href="http://www.change.org/petition" target="_blank">Petition</a> »</span></div><script type="text/javascript" src="http://e.change.org:80/flash_petitions_widget.js?width=300&petition_id=43030&color=1A3563"></script>
+
+    .large_air_below
+      %img{:src=>"/locads/images/ad3.jpg"}
+
+    /%a.fund_brb{ :href => "/fund"}
+    /  Support Local News!
+    /  %br
+    /  Give to the 
+    /  %br
+    /  Fund for Local Reporting!
+      
+    .wide_box.focus_border
+      .center
+        %h3
+          Email to
+          ==  #{fool_spam("subscribe")}.
+          %noscript
+            subscribe at BerkeleyDailyPlanet.com
+        %h5
+          and get free email updates.
+
+    .fund_brb
+      %h2
+        The Pepper Spray Times
+      %a{ :href => "/pdfs/pst-03-01-12.pdf"}
+        Read The March Issue
+      %p
+        (and please support Grace Underpressure with a donation :-)
+      %p
+        <form method="post" action="https://www.paypal.com/cgi-bin/webscr"> 	<input type="hidden" value="_s-xclick" name="cmd"/> <input type="hidden" value="9HY38973E9CCL" name="hosted_button_id"/> <input border="0" type="image" alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif"/> <img width="1" height="1" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" alt=""/> </form>
+    
+
+    
+    /%a{:href => "http://www.berkeleydailyplanet.com/issue/2009-11-25/article/34184"}
+    /  %img{:src=>"/locads/images/campaign-button.jpg", :alt=>''}
+    /%br{:clear => 'left'}/
+        
+      

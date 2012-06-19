@@ -1,0 +1,36 @@
+%h2.air_below Opinion
+- unless (foo = @issue.cur_editorials_recent).empty?
+  %h4 Editorials
+  - for @article in foo
+    = render(:partial => 'story_headline', :locals => {:skip_author => true})
+
+- unless (foo = @issue.new_editorials_recent).empty?
+  %h4 The Editor's Back Fence
+  - for @article in foo
+    = render(:partial => 'story_headline', :locals => {:skip_author => true})
+
+- unless (foo = @issue.ed_cartoons_recent).empty?
+  %h4 Cartoons
+  - for @article in foo
+    = render(:partial => 'story_headline', :locals => {:skip_author => false})
+
+- unless (foo =  @issue.commentary_recent).empty?
+  %h4 Comments
+  - for @article in foo
+    = render(:partial => 'story_headline', :locals => {:skip_author => false})
+      
+- unless (foo = @issue.news_recent).empty?
+  %h2 News
+  - for @article in foo
+    = render(:partial => 'story_headline', :locals => {:skip_author => false})
+
+- unless (foo =  @issue.columnists_recent).empty?
+  %h2 Columns
+  - for @article in foo
+    = render(:partial => 'story_headline', :locals => {:skip_author => false})
+
+- unless (foo =  @issue.arts_entertainment_recent).empty?
+  %h2 Arts &amp; Events
+  - for @article in foo
+    = render(:partial => 'story_headline', :locals => {:skip_author => false})
+ 

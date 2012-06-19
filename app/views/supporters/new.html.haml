@@ -1,0 +1,12 @@
+- @title = "Become a Friend of The Planet"
+#content
+  .gutter
+    %h1.large_air_below
+      I'd like to sign up as a "Friend of The Planet".
+    - form_for(@supporter) do |f|
+      %p
+        = render(:partial => 'form')
+      %p
+        = submit_tag "submit"
+= partial_include("public/nav_topics")
+

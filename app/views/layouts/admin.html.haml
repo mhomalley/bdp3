@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title
+      Bdp3
+    //= stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    //%title
+    //  = controller.action_name
+    = stylesheet_link_tag 'public'
+    = stylesheet_link_tag 'admin'
+  %body
+    %table#page_table
+      %tbody
+        %tr
+          %td#left_column
+            = left_menu
+          %td#center_column
+            .flash
+              - for key, value in flash
+                = content_tag('div', value, :style => 'color: green', :class => key)
+            = yield
+          %td#right_column
+            = right_menu

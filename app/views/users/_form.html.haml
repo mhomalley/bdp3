@@ -1,0 +1,21 @@
+%p#notice= notice
+= form_for(@user) do |f|
+  %table
+    %tr
+      %td
+        = f.label :user_name
+      %td
+        = f.text_field :user_name
+    %tr
+      %td
+        = f.label :password
+      %td
+        = f.password_field :password
+    %tr
+      %td
+        %label{"for"=>"confirm_password"}
+          Confirm Password
+      %td
+        %input#confirm_password{"name"=>"confirm_password", "size"=>"30", "type"=>"password"}/
+  
+  = submit_tag @submit_type

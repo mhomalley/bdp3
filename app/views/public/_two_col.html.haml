@@ -1,0 +1,115 @@
+#second_col
+  .gutter
+      
+    //- debugger
+    = front_page_photo
+    
+    %h1.air_below News
+    
+    - unless (foo = @issue.breaking_news_articles).empty?
+      /.web_updates
+      %h2.air_below.red Extra
+      .light_wash
+        - for @article in foo
+          = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+      %hr
+    
+    - unless (foo =  @issue.top_news_articles).empty?
+      %h2.air_below Page One
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+        %hr
+
+    - unless (foo =  @issue.more_news_articles).empty?
+      %h2.air_below Features
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+    - unless (foo =  @issue.election_news_articles).empty?
+      %h2.air_below Election Section
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+    - unless (foo =  @issue.pr_news_articles).empty?
+      %h2.air_below Press Releases
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+    - unless (foo =  @issue.columnists_articles).empty?
+      %h1.air_below Columns
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+    - if @issue.date > Date.strptime('2008-05-08', '%Y-%m-%d')
+      - unless (foo = @issue.ed_cartoons).empty?
+        /%h2.air_below Cartoons
+        - for @article in foo
+          = render(:partial => 'story_preview', :locals => {:skip_copy => true, :no_photo => false})
+    - else
+      = editorial_cartoon_img
+
+    - unless (foo = @issue.obit_articles).empty?
+      %h2.air_below Obituaries
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+
+#first_col
+  .gutter
+    /= front_page_photo
+
+    %h1.air_below Opinion
+    
+    - unless (@article = @issue.last_editorial).headline.nil?
+      .light_wash
+        %h2.air_below Editorial
+        /- @article = @issue.last_editorial
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+    
+    /- unless (foo = @issue.cur_editorials).empty?
+    /  %h2.air_below Editorial
+    /  - for @article in foo
+    /    = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+    - unless (foo = @issue.new_editorials).empty?
+      %h2.air_below The Editor's Back Fence
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+    /%h2.air_below.clear Commentaries
+
+    /- unless (foo =  @issue.cur_letters_to_the_editor).empty?
+    /  %h2.air_below 
+    /  - for @article in foo
+    /    = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+      
+    - unless (foo =  @issue.opinion_articles).empty?
+      %h2.air_below Comments
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+    
+    - unless (foo =  @issue.arts_articles).empty?
+      %h1.air_below Arts &amp; Events
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+    - unless (foo = @issue.home_garden_only).empty?
+      %h2.air_below Home &amp; Garden
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+    
+    - unless (foo =  @issue.events).empty?
+      %h2.air_below Events
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+    - unless (foo = @issue.arts_calendars).empty?
+      %h2.air_below Arts Listings
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => true, :no_photo => false})
+          
+    - unless (foo =  @issue.events_calendars).empty?
+      %h2.air_below Events Listings
+      - for @article in foo
+        = render(:partial => 'story_preview', :locals => {:skip_copy => true, :no_photo => false})
+        

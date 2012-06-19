@@ -1,0 +1,31 @@
+#content
+  .gutter
+    %p#notice= notice
+    %h1.large_air_below
+      List all Supporters
+    %table
+      - for supporter in @supporters
+        %tr
+          %td
+            = "#{h supporter.id}: &nbsp; "
+          %td
+            = "#{h supporter.first_name} "
+          %td
+            = "#{h supporter.last_name}, &nbsp; "
+          %td
+            = "#{h supporter.phone}, &nbsp; "
+          %td
+            = "#{h supporter.email} &nbsp; "
+          %td
+            = link_to 'Show &nbsp; ', supporter_path(supporter)
+          %td
+            = link_to 'Edit &nbsp; ', edit_supporter_path(supporter), :confirm => 'Are you sure?'
+          %td
+            = link_to 'Delete &nbsp; ', supporter_path(supporter), :confirm => 'Are you sure?  Deleteing a supporter is permanent!', :method => :delete
+    %br/
+    %h3
+      Select a different page of Supporters
+    = will_paginate @supporters
+    %br/
+    = link_to 'Add a new supporter', new_supporter_path
+

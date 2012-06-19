@@ -1,0 +1,34 @@
+- @title = "East Bay Opinion from #{title()}"
+#content
+  .gutter
+    %h1.large_air_below 
+      Opinion
+    %h2.air_below 
+      Editorials
+    - for @article in @issue.cur_editorials_recent
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+    - unless (ebf = @issue.new_editorials_recent).empty?
+      %h2.air_below The Editor's Back Fence
+      - for @article in ebf
+        = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+
+    /- if @issue.date > Date.strptime('2008-05-08', '%Y-%m-%d')
+    - unless (ec = @issue.ed_cartoons_recent).empty?
+      %h2.air_below Cartoons
+      - for @article in ec
+        = render(:partial => 'story_preview', :locals => {:skip_copy => true, :no_photo => false})
+    /- else
+    /  = editorial_cartoon_img
+
+    /%h2.air_below 
+    /  Letters
+    /- for @article in @issue.cur_letters_to_the_editor
+    /  = render(:partial => 'story_preview', :locals => {:skip_copy => true, :no_photo => false})
+
+    %h2.air_below.clear
+      Reader Commentaries
+    - for @article in @issue.commentary_recent
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+= partial_include("nav_topics")
+

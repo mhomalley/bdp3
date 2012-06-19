@@ -1,0 +1,9 @@
+%h1
+  Edit user's name and password for
+  = @user.user_name
+
+- @submit_type = "Update"
+
+= render 'form'
+
+= link_to 'List All Users', users_path

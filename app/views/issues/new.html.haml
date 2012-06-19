@@ -1,0 +1,14 @@
+%h1
+  Create a new issue
+//%p#notice= notice
+//- debugger
+//= form_for(:issue, :url => issues_path) do |f|
+= form_for @issue do |f|
+  %p
+    %b
+      Date
+    %br/
+    = f.date_select :date
+  %p
+    = submit_tag 'Create'
+

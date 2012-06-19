@@ -1,0 +1,62 @@
+%h1
+  Issue Date
+  %br/
+  = @issue.date.to_s
+%br/
+%p.menu
+  = link_to( 'Remove the Cache for this Issue', kill_issue_cache_path(:id => d(@issue.date))) unless @issue.new_record?
+%br/
+%p.menu
+  = link_to( 'Preview this Issue', public_issue_path(:issue_id => d(@issue.date))) unless @issue.new_record? 
+%br/
+%p.menu
+  = link_to( 'View the Main Site', empty_path )
+%br/
+%p.menu
+  = link_to( 'Add or Update an Article', new_issue_article_path(:issue_id => d(@issue.date))) unless @issue.new_record? 
+%br/
+%br/
+\*****
+%br/
+%p.menu
+  = link_to( 'Choose a Different Issue', issues_path()) if session['user_name'] == 'mho' 
+%br/
+%p.menu
+  = admin_prev_issue_link
+%br/
+%p.menu
+  = admin_next_issue_link
+%br/
+%p.menu
+  = link_to( 'Upload Files', upload_issue_path(:id => d(@issue.date))) unless @issue.new_record? 
+%br/
+\*****
+%br/
+%p.menu
+  = link_to( 'Make a Stand-alone Front Page Image', new_issue_image_path(:issue_id => d(@issue.date))) unless @issue.new_record? 
+%br/
+%p.menu
+  = link_to( 'Remove All Caches for All Issues', kill_cache_path(:id => d(@issue.date))) unless @issue.new_record? 
+%br/
+%br/
+\*****
+%br/
+%p.menu
+  = link_to( 'Create a New Issue', new_issue_path, :confirm => 'Are you sure?  Creating an issue has side effects.' )
+%br/
+%p.menu
+  = link_to( 'Publish the "latest" Issue', publish_issue_path(:id => d(@issue.date)), :confirm => 'Are you sure?  Publishing an issue has side effects.' ) unless @issue.new_record?
+%br/
+%br/
+\*****
+%br/
+%p.menu
+  = link_to('Edit/Add Users', users_path) if session['user_name'] == 'mho'
+%br/
+%p.menu
+  = link_to('Delete the Current Issue!!', issue_path(:id => d(@issue.date)), :confirm => 'Are you sure?  Deleteing an issue may have side effects.', :method => :delete) unless @issue.new_record? || session['user_name'] != 'mho'
+%br/
+%p.menu
+  = link_to( 'Logout', logout_users_path )
+%br/ 
+\*****

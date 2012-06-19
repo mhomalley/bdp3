@@ -1,0 +1,51 @@
+%table
+  %tr
+    %td
+      = f.label_for(:first_name)
+    %td
+      = f.text_field(:first_name)
+  %tr
+    %td
+      = f.label_for(:last_name)
+    %td
+      = f.text_field(:last_name)
+  %tr
+    %td
+      = f.label_for(:street)
+    %td
+      = f.text_field(:street_address, :size => 50)
+  %tr
+    %td
+      = f.label_for(:city)
+    %td
+      = f.text_field(:city)
+  %tr
+    %td
+      = f.label_for(:state)
+    %td
+      = f.select(:state,  State.options_for_select)
+  %tr
+    %td
+      = f.label_for(:zip)
+    %td
+      = f.text_field(:zipcode, :size => 12)
+  %tr
+    %td
+      = f.label_for(:phone)
+    %td
+      = f.text_field(:phone, :size => 15)
+  %tr
+    %td
+      = f.label_for(:email)
+    %td
+      = f.text_field(:email, :size => 50)
+  %tr
+    %td
+      = f.label_for(:preferred_contact_method_id)
+    %td
+      = f.select(:preferred_contact_method_id, Supporter.contact_methods_options_for_select)
+  %tr
+    %td
+      = f.label_for(:notes)
+    %td
+      = f.text_area(:notes, :cols => 50, :rows => 5)

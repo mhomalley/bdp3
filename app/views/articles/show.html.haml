@@ -1,0 +1,33 @@
+%p#notice= notice
+%p
+  %b
+    Issue:
+  = h @article.issue_id
+%p
+  %b
+    Author:
+  = h @article.author
+%p
+  %b
+    Headline:
+  = raw @article.headline
+%p
+  %b
+    Copy:
+  //= raw @article.copy
+  = article_photos(@article) 
+  .copy
+    <p>
+    = raw @article.copy.gsub(/\r?\n/, "&nbsp;</p><p>")
+    </p>
+%p
+  %b
+    Section:
+  = h @article.section
+%p
+  %b
+    Priority:
+  = h @article.priority
+= link_to 'Edit', edit_issue_article_path(:id => @article)
+|
+= link_to 'Back', issue_articles_path

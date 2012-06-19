@@ -1,0 +1,62 @@
+#leader_board
+.nav_site.top_nav
+  %ul.left
+    %li.top_pick_tab
+      = link_to 'Current Issue', empty_url
+    = previous_issue
+    = next_issue
+    %li.top_pick_tab
+      = link_to 'Search The Planet', public_archives_path      
+    /%ul.right
+    %li.top_pick_tab
+      = link_to('Contact Us', public_action_path(:issue_id => d(@issue.date), :action => 'contact'))
+    /%li.pick_tab= pdf_link('Calendar PDFs', "cal")
+    %li.top_pick_tab= pdf_link('Issue PDFs')
+    
+  .share_box
+    <!-- AddThis Button BEGIN -->
+    <a class="addthis_button left" href="http://addthis.com/bookmark.php?v=250&amp;username=mhomalley">
+    <img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="150" height="20" 
+    alt="Bookmark and Share" style="border:0"/></a>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=mhomalley"></script>
+    <!-- AddThis Button END -->
+
+#header    
+  .date_box.cntr.left
+    = @issue.date.strftime('%A')
+    %br/
+    = @issue.date.strftime('%B %d, %Y')
+  %center#flag
+    %img{:src=>"/images/bdp_logo_70px.jpg", :alt=>"The Berkeley Daily Planet"}/
+
+.nav_site
+  %ul.left
+    - if params[:action] == 'index'
+      %li.cur_tab= link_to('Front Page', public_issue_path(:issue_id => d(@issue.date)))
+    - else
+      %li.pick_tab= link_to('Front Page', public_issue_path(:issue_id => d(@issue.date)))
+
+    - if params[:action] == 'news'
+      %li.cur_tab= link_to('News', public_action_path(:issue_id => d(@issue.date), :action => 'news'))
+    - else
+      %li.pick_tab= link_to('News', public_action_path(:issue_id => d(@issue.date), :action => 'news'))
+
+    - if params[:action] == 'opinion'
+      %li.cur_tab= link_to('Opinion', public_action_path(:issue_id => d(@issue.date), :action => 'opinion'))
+    - else
+      %li.pick_tab= link_to('Opinion', public_action_path(:issue_id => d(@issue.date), :action => 'opinion'))
+
+    - if params[:action] == 'columns'
+      %li.cur_tab= link_to('Columnists', public_action_path(:issue_id => d(@issue.date), :action => 'columns'))
+    - else
+      %li.pick_tab= link_to('Columnists', public_action_path(:issue_id => d(@issue.date), :action => 'columns'))
+
+    - if params[:action] == 'arts_entertainment'
+      %li.cur_tab= link_to(raw('Arts &amp; Events'), public_action_path(:issue_id => d(@issue.date), :action => 'arts_entertainment'))
+    - else
+      %li.pick_tab= link_to(raw('Arts &amp; Events'), public_action_path(:issue_id => d(@issue.date), :action => 'arts_entertainment'))
+
+    %li.pick_tab= link_to('The Week', public_action_path(:issue_id => d(@issue.date), :action => 'summary'))
+    %li.pick_tab= link_to('Full Text', public_action_path(:issue_id => d(@issue.date), :action => 'full_text'))
+    /%li.pick_tab= link_to('quick', public_action_path(:issue_id => d(@issue.date), :action => 'toc'))
+    

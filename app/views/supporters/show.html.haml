@@ -1,0 +1,16 @@
+#content
+  .gutter
+    %h1.large_air_below
+      View the Supporter's Information
+    = "ID: #{@supporter.id}, Name: #{@supporter.first_name}  #{@supporter.last_name}"
+    %br/
+    %br/
+    %p#notice= notice
+
+    = form_for(@supporter) do |f|
+      %p
+        = render(:partial => 'form')
+    
+    %br/
+    %br/
+    = link_to 'List All Supporters', supporters_path

@@ -1,0 +1,9 @@
+- @title = "East Bay News from #{title()}"
+#content
+  .gutter
+    %h1.large_air_below
+      News
+    - for @article in @issue.news_recent
+      = render(:partial => 'story_preview', :locals => {:skip_copy => false, :no_photo => false})
+= partial_include("nav_topics")
+

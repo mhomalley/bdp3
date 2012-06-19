@@ -1,0 +1,18 @@
+#content
+  .gutter
+    %h1.large_air_below
+      Edit the Supporter's Information
+    = "ID: #{@supporter.id}, Name: #{@supporter.first_name}  #{@supporter.last_name}"
+    %br/
+    %br/
+    %p#notice= notice
+    
+    - form_for(@supporter, :html => { :method => :put }) do |f|
+      %p
+        = render(:partial => 'form')
+      %p
+        = submit_tag "Update"
+    
+    %br/
+    %br/
+    = link_to 'List All Supporters', supporters_path

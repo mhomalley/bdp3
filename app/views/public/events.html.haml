@@ -1,0 +1,29 @@
+- @title = "East Bay Events and Arts Calendars from #{title()}"
+#content
+  .gutter
+    - unless (foo =  @issue.events).empty?
+      %h2.air_below Events
+      - for @article in foo
+        = render(:partial => 'story_complete', :locals => {:skip_copy => false, :no_photo => false})
+
+    - unless(foo =  @issue.events_calendars).empty?
+      %h2.air_below Events Listings
+      - for @article in foo
+        = render(:partial => 'story_complete', :locals => {:skip_copy => true, :no_photo => false})
+
+    - unless (foo = @issue.arts_calendars).empty?
+      %h2.air_below Arts Listings
+      - for @article in foo
+        = render(:partial => 'story_complete', :locals => {:skip_copy => true, :no_photo => false})
+    /%h1.large_air_below
+    /  East Bay Events and Arts Calendars
+    /%h2.air_below
+    /  = section_article_link('Arts Calendar', :arts_calendar)
+    /%h2.air_below Events Calendar
+    /- for @article in @issue.cur_calendars
+    /  /= article_photos(@article) 
+    /  .copy
+    /    <p>
+    /    = @article.copy.gsub(/\n\s/, "</p><p>")
+    /    </p>
+= partial_include("nav_topics")

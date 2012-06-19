@@ -1,0 +1,12 @@
+//- debugger
+%h1
+  Upload Various Files
+%p#notice= notice
+%br/
+= form_for(:pdf, :url => do_upload_issue_path, :html => {:enctype => "multipart/form-data"}) do |f|
+  %label{:for => "pdf_file_name"}
+    PDF File Name:
+  = f.file_field(:file_name, :size => 50)
+  %br/
+  %p
+    = submit_tag "Upload PDF File"

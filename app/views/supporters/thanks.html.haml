@@ -1,0 +1,16 @@
+- @title = "Thanks!"
+#content
+  .gutter
+    %p#notice= notice
+    %h1.large_air_below
+      Thanks for becoming a Friend of The Planet!
+    %p
+      If you have not yet donated to the Fund for Local Reporting, you may do so
+      = link_to 'here.', fund_path
+    %br
+    %p
+      Otherwise, you may return to the current issue
+      = link_to 'here.', empty_path
+
+= partial_include("public/nav_topics")
+

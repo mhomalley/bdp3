@@ -1,0 +1,47 @@
+%h1
+  Edit this Image
+  %p#notice= notice
+= form_for(:image, :url => issue_image_path(:id => @image.id), :html => { :method => :put }) do |f|
+  %br/
+  %p
+    %b
+      Article
+    %br/
+    = f.text_field :article_id
+  %br/
+  %p
+    %b
+      File Name
+    %br/
+    = f.text_field :file_name, :size => 80
+  - unless @issue.front_page_image.nil?
+    %br/
+    %p
+      %b
+        Front Page Image File Name:
+      %br/
+      = @issue.front_page_image.file_name
+  %br/
+  %p
+    %b
+      Author
+    %br/
+    = f.text_area(:author, :cols => 50, :rows => 1)
+  %br/
+  %p
+    %b
+      Caption
+    %br/
+    = f.text_area(:caption, :cols => 90, :rows => 4)
+  %p
+    %span.red
+      Should this image also be made the Front Page Image?
+    = check_box_tag('fpi')
+    %br/
+    %br/
+    = submit_tag 'Update'
+
+%br/
+%br/
+= photo_img(@image)
+

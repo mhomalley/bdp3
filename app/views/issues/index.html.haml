@@ -1,0 +1,26 @@
+//- debugger
+%p#notice= notice
+%h1
+  List all issues
+%table
+  %tr
+    %th
+      Date
+    /%th
+    // FIX?  Front page image
+  - for issue in @issues
+    %tr
+      %td
+        = link_to issue.date, new_issue_article_path(:issue_id => d(issue.date))
+      /%td
+      // = debug Image.issue.front_page_image #.file_name
+      %td
+        = link_to 'Show FPI', issue_path(:id => d(issue.date))
+      %td
+        = link_to 'Change Date', edit_issue_path(:id => d(issue.date))
+      %td
+        = link_to 'Delete', issue_path(:id => d(issue.date)), :confirm => 'Are you sure?  Deleteing an issue may have side effects.', :method => :delete
+%h3
+  Select a different page of issues
+= will_paginate @issues
+

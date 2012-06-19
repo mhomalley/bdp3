@@ -1,0 +1,8 @@
+%h1
+  User Menu
+%p.menu
+  = link_to('Add or Edit an Issue', admin_path) if session['user_name'] # == 'mho' #any session?
+%p.menu
+  = link_to 'Logout', logout_users_path if session['user_name'] != nil
+%p.menu
+  = link_to('View the Main Site', empty_path)

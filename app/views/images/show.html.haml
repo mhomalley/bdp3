@@ -1,0 +1,24 @@
+%p#notice= notice
+%p
+  %b
+    Article:
+  = h @image.article_id
+%p
+  %b
+    File name:
+  = h @image.file_name
+%p
+  %b
+    Author:
+  = h @image.author
+%p
+  %b
+    Caption:
+  = h @image.caption
+= link_to 'Edit', edit_issue_image_path(:id => @image.id, :issue_id => d(@issue.date))
+|
+= link_to 'Back', issue_images_path
+%br/
+%br/
+= photo_img(@image)
+

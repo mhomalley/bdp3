@@ -1,0 +1,5 @@
+%p.small_air_around
+  = article_headline(@article)
+  - if !skip_author && tmp = article_author(@article)
+    = tmp
+  = article_short_post_date(@article)

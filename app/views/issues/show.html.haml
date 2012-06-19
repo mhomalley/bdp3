@@ -1,0 +1,22 @@
+%p#notice= notice
+//- debugger
+%p
+  %b
+    Date:
+  = h @issue.date
+- unless @issue.front_page_image.nil?
+  %p
+    %b
+      Front page image:
+    = @issue.front_page_image.file_name
+  %br/
+  = photo_img(@issue.front_page_image)
+  %p
+    %b
+      Caption:
+  = @issue.front_page_image.caption
+  %p
+    %b
+      Author:
+  = @issue.front_page_image.author
+
